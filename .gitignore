@@ -1,0 +1,6 @@
+*.komodo*
+node_modules
+math_parser.js
+*.swp
+*.bak
+*.preprocessed.par
