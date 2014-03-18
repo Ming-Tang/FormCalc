@@ -34,3 +34,11 @@ Known Issues
 
 The evaluator uses regular expression and eval, so there are many quirks such as not being able to evaluate `50(x+2)(x-1)`. I plan to code a proper parser.
     
+
+How to Build
+============
+Install [jscc-node](https://github.com/badlee/JSCC-NODE).
+
+    npm install jscc-node
+
+Then, run `build.sh`.
