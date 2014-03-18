@@ -1,3 +1,6 @@
+/* functions.js
+ * Math functions
+ */
 
 var Functions = { };
 Object.getOwnPropertyNames(Math).forEach(function(key) { Functions[key] = Math[key]; });
