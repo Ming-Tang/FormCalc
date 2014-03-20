@@ -6,6 +6,7 @@
 
 (function() {
 
+// #include "jquery.js"
 // #include "functions.js"
 
 var Variables = { };
@@ -29,9 +30,7 @@ function parse(input_string) {
   // #include "math_parser.js"
 }
 
-
-
-document.addEventListener("keyup", function(e) {
+$(document).bind('keyup', 'ctrl+shift+x', function(e) {
   if (e.ctrlKey && e.shiftKey && e.keyCode == 88) {
     var elem = document.activeElement;
     if (elem.selectionEnd - elem.selectionStart === 0) elem.select();
@@ -53,7 +52,7 @@ document.addEventListener("keyup", function(e) {
       }
     }
   }
-}, false);
+});
 
 
 
