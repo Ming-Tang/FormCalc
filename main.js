@@ -10,6 +10,18 @@
 
 var Variables = { };
 
+function getVariable(name) {
+  if (Variables.hasOwnProperty(name)) {
+    return Variables[name];
+  } else {
+    throw "Undefined variable: " + name;
+  }
+}
+
+function setVariable(name, value) {
+  return Variables[name] = value;
+}
+
 /**
  * Parse and evaluate an expression.
  */
@@ -27,9 +39,19 @@ document.addEventListener("keyup", function(e) {
     var expr = elem.value.substring(elem.selectionStart, elem.selectionEnd);
     console.log("expr: ", expr);
 
-    var result = parse(expr);
-    console.log("result: ", result);
-    elem.setRangeText(result);
+    try {
+      var result = parse(expr);
+      console.log("result: ", result);
+      elem.setRangeText(result);
+    } catch (e) {
+      if (typeof e === "string") {
+        alert(e);
+        console.log(e);
+      } else if (e instanceof Array) {
+        alert(e.join('\n'));
+        console.log(e);
+      }
+    }
   }
 }, false);
 

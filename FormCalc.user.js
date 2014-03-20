@@ -24,6 +24,18 @@ Functions.lg = function(x) { return Math.log(x) / Math.LN2; };
 
 var Variables = { };
 
+function getVariable(name) {
+  if (Variables.hasOwnProperty(name)) {
+    return Variables[name];
+  } else {
+    throw "Undefined variable: " + name;
+  }
+}
+
+function setVariable(name, value) {
+  return Variables[name] = value;
+}
+
 /**
  * Parse and evaluate an expression.
  */
@@ -497,7 +509,7 @@ function parse(input_string) {
   	break;
   	case 2:
   	{
-  		 rval = (result = Variables[vstack[ vstack.length - 3 ]] = vstack[ vstack.length - 1 ]); 
+  		 rval = (result = setVariable(vstack[ vstack.length - 3 ], vstack[ vstack.length - 1 ])); 
   	}
   	break;
   	case 3:
@@ -552,7 +564,7 @@ function parse(input_string) {
   	break;
   	case 13:
   	{
-  		 rval = Variables[vstack[ vstack.length - 1 ]]; 
+  		 rval = getVariable(vstack[ vstack.length - 1 ]); 
   	}
   	break;
   	case 14:
@@ -650,9 +662,17 @@ document.addEventListener("keyup", function(e) {
     var expr = elem.value.substring(elem.selectionStart, elem.selectionEnd);
     console.log("expr: ", expr);
 
-    var result = parse(expr);
-    console.log("result: ", result);
-    elem.setRangeText(result);
+    try {
+      var result = parse(expr);
+      console.log("result: ", result);
+      elem.setRangeText(result);
+    } catch (e) {
+      if (typeof e === "string") {
+        elem.setRangeText(e);
+      } else if (e instanceof Array) {
+        alert("Parse error:\n" + e.join('\n'));
+      }
+    }
   }
 }, false);
 

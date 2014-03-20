@@ -39,7 +39,7 @@
 /~ --- Grammar specification --- ~/
 
 p: e              [* %% = (result = %1); *]
-|  IDENT '=' e    [* %% = (result = Variables[%1] = %3); *]
+|  IDENT '=' e    [* %% = (result = setVariable(%1, %3)); *]
 ;
 
 e: e '+' e        [* %% = %1 + %3; *]
@@ -56,7 +56,7 @@ e2: P   e2  &'*'  [* %% = %1 * %2; *]
 
 P: Pa
 |  N
-|  IDENT [* %% = Variables[%1]; *]
+|  IDENT [* %% = getVariable(%1); *]
 ;
 
 Pa: '(' e ')'     [* %% = %2; *]
