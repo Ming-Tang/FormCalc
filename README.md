@@ -16,7 +16,8 @@ This is a user script. If you are using Firefox, you can install it through Grea
 Usage
 -----
 
-Focus on any input or textarea and press <kbd>Ctrl+Shift+X</kbd> to evaluate. You can evaluate a selection.
+Focus on any input or textarea and press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>X</kbd> to evaluate. You can evaluate a selection.
+If you want to evaluate without overwriting the text field (to repeat an assignment expression), use <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd>.
 
 Syntax
 ------
