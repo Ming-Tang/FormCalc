@@ -7,6 +7,7 @@
 (function() {
 
 // #include "jquery.js"
+// #include "shortcut.js"
 // #include "functions.js"
 
 var Variables = { };
@@ -30,30 +31,37 @@ function parse(input_string) {
   // #include "math_parser.js"
 }
 
-$(document).bind('keyup', 'ctrl+shift+x', function(e) {
-  if (e.ctrlKey && e.shiftKey && e.keyCode == 88) {
-    var elem = document.activeElement;
-    if (elem.selectionEnd - elem.selectionStart === 0) elem.select();
+function doEvaluation(overwrite) {
+  var elem = document.activeElement;
+  if (elem.selectionEnd - elem.selectionStart === 0) elem.select();
 
-    var expr = elem.value.substring(elem.selectionStart, elem.selectionEnd);
-    console.log("expr: ", expr);
+  var expr = elem.value.substring(elem.selectionStart, elem.selectionEnd);
+  console.log("expr: ", expr);
 
-    try {
-      var result = parse(expr);
-      console.log("result: ", result);
-      elem.setRangeText(result);
-    } catch (e) {
-      if (typeof e === "string") {
-        alert(e);
-        console.log(e);
-      } else if (e instanceof Array) {
-        alert(e.join('\n'));
-        console.log(e);
-      }
+  try {
+    var result = parse(expr);
+    console.log("result: ", result);
+    if (overwrite) elem.setRangeText(result);
+  } catch (e) {
+    if (typeof e === "string") {
+      alert(e);
+      console.log(e);
+    } else if (e instanceof Array) {
+      alert(e.join('\n'));
+      console.log(e);
     }
   }
-});
+}
 
+var opts = { 'disable_in_input': false };
+
+shortcut.add('keydown', 'Ctrl+Shift+X', function() {
+  doEvaluation(true);
+}, opts);
+
+shortcut.add('Ctrl+Shift+S', function() {
+  doEvaluation(false);
+}, opts);
 
 
 })();
