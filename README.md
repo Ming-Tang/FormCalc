@@ -32,8 +32,9 @@ Syntax
 
 How to Build
 ============
-Install [jscc-node](https://github.com/badlee/JSCC-NODE).
+Install Node.js and the following packages:
 
     npm install jscc-node
+    npm install preprocessor
 
 Then, run `build.sh`.
