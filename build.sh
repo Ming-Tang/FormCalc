@@ -17,6 +17,7 @@ USERSCRIPT_OUTPUT=FormCalc.user.js
 
 # preprocess parser
 $PREPROCESS $PARSER_INPUT > $PARSER_PREPROCESSED
+
 # workaround for the percent signs removed by preprocessor (% -> %%)
 sed -i.bak "s/%\\s*=/%% =/g" $PARSER_PREPROCESSED
 
