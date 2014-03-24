@@ -20,8 +20,10 @@ Functions.log = function(x, y) {
 Functions.ln = function(x) { return Math.log(x); };
 Functions.lg = function(x) { return Math.log(x) / Math.LN2; };
 
+Functions.cbrt = function(x) { return Math.pow(x, 1 / 3); };
+
 // Short function definitions.
-var ShortFunctions = "sin cos tan asin acos atan log ln lg".split(" ");
+var ShortFunctions = "sin cos tan asin acos atan log ln lg abs sqrt cbrt".split(" ");
 
 // #if !MAIN
 // This part is for the build pipeline.
