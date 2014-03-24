@@ -1,8 +1,4 @@
-// ==UserScript==
-// @name           Form Calculator
-// @description    Evaluate a text selection as math expression
-// @include        *
-// ==/UserScript==
+// #include "userscript_header.js"
 
 (function() {
 
