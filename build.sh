@@ -22,6 +22,7 @@ sed -i.bak "s/%\\s*=/%% =/g" $PARSER_PREPROCESSED
 
 # generate parser using js/cc
 $NODE $JSCC_NODE_PATH/jscc.js -t $DRIVER -o $PARSER_OUTPUT $PARSER_PREPROCESSED
+
 # glue JS files together into the userscript
 $PREPROCESS $MAIN_JS > $USERSCRIPT_OUTPUT
 
