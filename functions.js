@@ -2,8 +2,14 @@
  * Math functions
  */
 
+// Function definitions.
 var Functions = { };
-Object.getOwnPropertyNames(Math).forEach(function(key) { Functions[key] = Math[key]; });
+
+Object.getOwnPropertyNames(Math).forEach(function(key) {
+  var c0 = key.charAt(0);
+  if (c0.toLowerCase() === c0)
+    Functions[key] = Math[key];
+});
 
 Functions.log = function(x, y) {
   return arguments.length == 2
@@ -13,3 +19,23 @@ Functions.log = function(x, y) {
 
 Functions.ln = function(x) { return Math.log(x); };
 Functions.lg = function(x) { return Math.log(x) / Math.LN2; };
+
+// Short function definitions.
+var ShortFunctions = "sin cos tan asin acos atan log ln lg".split(" ");
+
+// #if !MAIN
+// This part is for the build pipeline.
+
+exports.getShortFunctionTokens = function() {
+  return "  " + ShortFunctions.map(function(x) {
+    return "'" + x + "'";
+  }).join('\n  ') + ";";
+};
+
+exports.getShortFunctionEvaluations = function() {
+  return ShortFunctions.map(function(x) {
+    return "|  '" + x + "' e &'*' [* %% = Functions['" + x + "'](%2); *]";
+  }).join('\n') + "\n";
+};
+
+// #endif

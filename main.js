@@ -6,6 +6,7 @@
 
 (function() {
 
+// #define var MAIN = true
 // #include "jquery.js"
 // #include "shortcut.js"
 // #include "functions.js"
@@ -55,7 +56,7 @@ function doEvaluation(overwrite) {
 
 var opts = { 'disable_in_input': false };
 
-shortcut.add('keydown', 'Ctrl+Shift+X', function() {
+shortcut.add('Ctrl+Shift+X', function() {
   doEvaluation(true);
 }, opts);
 
