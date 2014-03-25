@@ -36,5 +36,24 @@ Install Node.js and the following packages:
 
     npm install jscc-node
     npm install preprocessor
+    npm install closure-compiler
 
 Then, run `build.sh`.
+
+TODO List
+=========
+
+In order of priority
+
+ - Chrome extension build
+ - Scientific notation: `3.00e8`
+ - Exponents: `x^2`, `10^2.5`, `2^2^2`
+ - Rewrite build script in JS
+ - Multi-parameter functions: `atan2(y, x)`
+ - Mathematical and physical constants: `PI`, `E`, `X`
+ - Numerical integration and differentiation: `{I(x=1,2) 1/x}`, `{D(x=2) x^2}`
+ - Numerical equation solving: `{Solve(x, 0.5) x - cos x}`
+ - Calculation console
+ - Unit conversion factors: `1 in->cm->m => 0.0254`
+ - Reference card
+
