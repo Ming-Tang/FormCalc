@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Install: npm install jscc-node
-#          npm install preprocessor
-
 NODE=node
 JSCC_NODE_PATH=./node_modules/jscc-node/
 PREPROCESS=./node_modules/.bin/preprocess
@@ -11,7 +8,9 @@ DRIVER=driver.js_
 PARSER_INPUT=math.par
 PARSER_PREPROCESSED=math.preprocessed.par
 PARSER_OUTPUT=math_parser.js
+
 MINIFY_USERSCRIPT=minify_userscript.js
+GENERATE_CHROME_EXT=generate_chrome_ext.js
 
 MAIN_JS=main.js
 USERSCRIPT_DEV_OUTPUT=FormCalc.dev.user.js
@@ -36,3 +35,7 @@ $NODE $MINIFY_USERSCRIPT $USERSCRIPT_DEV_OUTPUT $USERSCRIPT_OUTPUT $USERSCRIPT_H
 # remove intermediate files
 rm $PARSER_PREPROCESSED
 rm *.bak
+
+# generate Chrome extension, dev and minified
+$NODE $GENERATE_CHROME_EXT dev
+$NODE $GENERATE_CHROME_EXT

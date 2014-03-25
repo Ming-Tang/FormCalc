@@ -37,6 +37,7 @@ Install Node.js and the following packages:
     npm install jscc-node
     npm install preprocessor
     npm install closure-compiler
+    npm install fs-extra
 
 Then, run `build.sh`.
 
