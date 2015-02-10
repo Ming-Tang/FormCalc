@@ -38,7 +38,7 @@ Install Node.js and the following packages:
     npm install preprocessor
     npm install closure-compiler
 
-Then, run `build.sh`.
+Then, run `make all`.
 
 TODO List
 =========
