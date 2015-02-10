@@ -1,0 +1,9 @@
+{
+  "name": "FormCalc",
+  "dependencies": {
+    "closure-compiler": "^0.2.6",
+    "jscc": "^0.2.0",
+    "jscc-node": "^0.3.0",
+    "preprocessor": "^1.4.0"
+  }
+}
